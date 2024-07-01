@@ -14,7 +14,7 @@ class GenerateFile() {
             list.forEach { game ->
                 val name = game.info.title
                 val price = game.cheapestPriceEver.price
-                out.write("$name,${String.format("%.2f", price)}\n")
+                out.write("$name,${String.format("%.2f", price).replace(",", ".")}\n")
             }
         }
         println("CSV file '$filePath' has been created successfully.")
