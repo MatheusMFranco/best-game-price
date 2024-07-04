@@ -1,21 +1,19 @@
 package org.magalzim.log
 
-import org.magalzim.MIN_PRICE
 import org.magalzim.model.CheapShark
 import org.magalzim.model.Game
 import org.magalzim.util.transformToDate
 
 class PrintInfo {
     companion object {
-
-        fun print(gameInfo: CheapShark) {
+        fun print(gameInfo: CheapShark, minPrice: Double) {
             val title = gameInfo.info.title
             println("\n* $title\n")
             val deals = gameInfo.deals
             deals.sortBy { it.price }
             val bestPrice = deals.first()
             val worstPrice = deals.last()
-            val stores = deals.filter { it.price <= MIN_PRICE }
+            val stores = deals.filter { it.price <= minPrice }
             stores.forEach { println("Store: " + Game.findStore(it.storeID) + " | Price: $" + it.price) }
             val store = bestPrice.storeID
             val cheapest = gameInfo.cheapestPriceEver;
