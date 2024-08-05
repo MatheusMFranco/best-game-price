@@ -1,8 +1,6 @@
 package org.magalzim.repository
 
-import org.magalzim.database.GameEntity
 import org.magalzim.database.StoreEntity
-import org.magalzim.model.Game
 import org.magalzim.model.Store
 import org.magalzim.util.toEntity
 import org.magalzim.util.toModel
